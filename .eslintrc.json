@@ -1,0 +1,36 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "eslint-config-prettier",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "plugins": ["unused-imports", "react-refresh"],
+    "settings": {
+        "react": {
+            "version": "detect"
+        },
+        "import/resolver": {
+            "node": {
+                "paths": ["src"],
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    },
+    "rules": {
+        "react/prop-types": "off",
+        "react/react-in-jsx-scope": "off",
+        "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
+        "no-empty-function": "warn",
+        "no-extra-semi": "warn",
+        "no-mixed-operators": "off",
+        "unused-imports/no-unused-imports": "warn",
+        "unused-imports/no-unused-vars": "warn",
+        "no-undef-init": "warn",
+        "no-unneeded-ternary": "warn",
+        "no-useless-return": "warn",
+        "no-var": "warn"
+    },
+    "ignorePatterns": ["**/*.json"]
+}

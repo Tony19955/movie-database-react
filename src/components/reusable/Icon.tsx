@@ -1,4 +1,6 @@
-interface IconProps {
+import { SVGProps } from 'react';
+
+interface IconProps extends SVGProps<SVGSVGElement> {
     id: string;
 }
 

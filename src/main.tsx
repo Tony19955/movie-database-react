@@ -1,5 +1,5 @@
 import './i18n.ts';
-import './index.css';
+import './styles/reset.css';
 
 import React from 'react';
 import { Provider } from 'react-redux';
@@ -9,7 +9,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
 import { store } from './redux/store.ts';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById('root') as Element).render(
     <React.StrictMode>
         <Provider store={store}>
             <BrowserRouter>

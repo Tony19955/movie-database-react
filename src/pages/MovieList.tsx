@@ -1,5 +1,50 @@
+import { StyledInfoLabel, StyledMovieListItems, StyledMovieListWrapper } from './MovieList.styles';
+
+import { SyntheticEvent, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import MovieCard from '../components/MovieCard';
+import Search from '../components/reusable/Search';
+import LoaderSpinner from '../components/reusable/LoaderSpinner';
+
+import { useDebounce } from '../hooks/useDebounce';
+import { useAppDispatch } from '../hooks/useAppDispatch';
+import { useAppSelector } from '../hooks/useAppSelector';
+import { useGetMoviesQuery } from '../redux/services/omdbAPI';
+import { saveSearchValue, selectSearchValue } from '../redux/slices/searchSlice';
+
 const MovieList = (): JSX.Element => {
-    return <div></div>;
+    const { t } = useTranslation();
+    const dispatch = useAppDispatch();
+
+    const savedSearchValue = useAppSelector(selectSearchValue);
+    const [searchValue, setSearchValue] = useState<string>(savedSearchValue);
+    const debouncedValue = useDebounce(searchValue, 500);
+
+    const { data: movies, isLoading, error } = useGetMoviesQuery({ s: debouncedValue as string });
+
+    const handleSearchValueChange = (e: SyntheticEvent<HTMLInputElement>): void => {
+        const value = e.currentTarget.value;
+        setSearchValue(value);
+        dispatch(saveSearchValue(value as string));
+    };
+
+    return (
+        <StyledMovieListWrapper>
+            <Search onChange={handleSearchValueChange} placeholder={t('label-search-movie')} value={searchValue} />
+            {error ? <StyledInfoLabel>{t('error-could-not-fetch')}</StyledInfoLabel> : null}
+            {isLoading ? <LoaderSpinner /> : null}
+            {movies && movies.length > 0 ? (
+                <StyledMovieListItems>
+                    {movies?.map(({ imdbID, Poster, Title, Year }) => (
+                        <MovieCard key={imdbID} imdbId={imdbID} poster={Poster} title={Title} year={Year} />
+                    ))}
+                </StyledMovieListItems>
+            ) : (
+                !error && !isLoading && <StyledInfoLabel>{t('label-no-movies-found')}</StyledInfoLabel>
+            )}
+        </StyledMovieListWrapper>
+    );
 };
 
 export default MovieList;

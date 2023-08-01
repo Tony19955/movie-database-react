@@ -1,3 +1,19 @@
 {
-    "translation": {}
+    "translation": {
+        "label-favourites": "Favourites",
+        "label-view": "View",
+        "label-no-movies-found": "Sorry, we couldn't find any movies for your search term",
+        "label-search-movie": "Search a movie, episode, documentary..",
+        "label-genre": "Genre:",
+        "label-released": "Released:",
+        "label-rated": "Rated:",
+        "label-imdb": "IMDb:",
+        "label-director": "Director:",
+        "label-writer": "Writer:",
+        "label-actors": "Actors:",
+
+        "heading-about": "About",
+
+        "error-could-not-fetch": "It seems like there occured an error, please try again later"
+    }
 }

@@ -1,33 +1,51 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { GET } from '../../constants';
+import { Movie, MovieDetail } from '../../types/types';
 
-interface MovieResponse {
-    isValid: boolean;
-    errors: {
-        code: string;
-        description: string;
-    }[];
+interface MoviesResponse {
+    Response: string;
+    Search: Movie[];
+    totalResults: number;
+}
+
+interface GetMoviesParams {
+    s: string;
 }
 
 interface GetMovieParams {
-    searchValue: string;
+    i: string;
 }
 
 export const omdbAPI = createApi({
     reducerPath: 'omdbApi',
-    baseQuery: fetchBaseQuery({ baseUrl: `http://www.omdbapi.com/?apikey=${import.meta.env.VITE_OMDB_API_KEY}` }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://www.omdbapi.com' }),
+    refetchOnReconnect: true,
     endpoints: (builder) => ({
-        getMovie: builder.query<MovieResponse, GetMovieParams>({
-            query: ({ searchValue }) => {
+        getMovies: builder.query<Movie[], GetMoviesParams>({
+            query: ({ s }) => {
                 return {
-                    url: '/',
+                    url: `/?apikey=${import.meta.env.VITE_OMDB_API_KEY}`,
                     method: GET,
-                    params: { searchValue }
+                    params: { s }
                 };
             },
-            extraOptions: { maxRetries: 0 }
+            transformResponse: (moviesResponseData: MoviesResponse) => {
+                return moviesResponseData.Search;
+            },
+            keepUnusedDataFor: 180
+        }),
+
+        getMovie: builder.query<MovieDetail, GetMovieParams>({
+            query: ({ i }) => {
+                return {
+                    url: `/?apikey=${import.meta.env.VITE_OMDB_API_KEY}`,
+                    method: GET,
+                    params: { i }
+                };
+            },
+            keepUnusedDataFor: 180
         })
     })
 });
 
-export const { useGetMovieQuery } = omdbAPI;
+export const { useGetMoviesQuery, useGetMovieQuery } = omdbAPI;

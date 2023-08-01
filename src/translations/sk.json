@@ -1,3 +1,19 @@
 {
-    "translation": {}
+    "translation": {
+        "label-favourites": "Obľúbené",
+        "label-view": "Zobraziť",
+        "label-no-movies-found": "Ospravedlňujeme sa, pre hľadaný výraz neboli nájdené žiadne filmy",
+        "label-search-movie": "Hľadať film, epizódu, dokument..",
+        "label-genre": "Žáner:",
+        "label-released": "Vydané:",
+        "label-rated": "Hodnotenie:",
+        "label-imdb": "IMDb:",
+        "label-director": "Režisér:",
+        "label-writer": "Scenárista:",
+        "label-actors": "Obsadenie:",
+
+        "heading-about": "Obsah",
+
+        "error-could-not-fetch": "Vypadá to, že niekde nastala chyba, prosím zopakujte akciu neskôr."
+    }
 }

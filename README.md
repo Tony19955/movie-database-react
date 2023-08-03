@@ -1,27 +1,44 @@
-# React + TypeScript + Vite
+# Created via React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# How to start project locally
+Run command - npm run install
+Create new .env file at the root of folder and copy .env.sample in it
+Run command - npm run dev
 
-Currently, two official plugins are available:
+# Folder and files structure: 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+public - static files (images, svgs in sprite)
 
-## Expanding the ESLint configuration
+src - all app source code
+   /components - folder with reusable and non-reusable app components
+   /hooks - folder with reusable hooks
+   /pages - folder with all app pages
+      /layouts - folder with app layouts (for possible difference in layouts if app scales)
+   /redux - folder with services (RTK query) and slices (Redux Toolkit) folders
+   /styles - folder with global app styles
+   /translations - folder with translation json files for i18n
+   /types - folder with reusable types
+   /utils - folder with reusable function without state (opposite to hooks)
+   /App.tsx - component with Routes, lazy loading page chunks
+   /constants.ts - file with global app constants
+   /ErrorBoundary.tsx - global app error handler
+   /i18n.ts - config file for i18n
+   /main.tsx - general component with Redux store provider, BrowserRouter and ErrorBoundary wrappers 
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+.env - environment variables
+.env.sample - sample environment variables available on Git
+.eslintignore - ignore files for ESlint 
+.eslintrc - ESlint config file
+.gitignore - ignore files for Git
+.prettierignore - ignore files for Prettier
+index.html - root HTML file
+package.json - project dependencies
+tsconfig.json - typescript configuration for project
+tsconfig.node.json - typescript configuration for project
+vite.config.ts - Vite config file
 
-- Configure the top-level `parserOptions` property like this:
+# Tech stack used:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+React Vite
+Styled components for Styling
+Redux Toolkit + RTK Query for global state management and data fetching

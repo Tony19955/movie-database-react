@@ -13,3 +13,4 @@ export const LANGUAGE_SK = 'sk';
 export const REDUX_LOCAL_STORAGE_KEY = 'redux';
 
 export const NOT_AVAILABLE = 'N/A';
+export const DOTS = '...';

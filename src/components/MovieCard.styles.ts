@@ -7,12 +7,8 @@ export const StyledMovieCardWrapper = styled.div`
     overflow: hidden;
     flex-direction: column;
 
-    > a {
+    button {
         width: 100%;
-
-        button {
-            width: 100%;
-        }
     }
 `;
 

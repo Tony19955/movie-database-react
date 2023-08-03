@@ -6,6 +6,12 @@ export const StyledMovieListWrapper = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    .infinite-scroll-component {
+        text-align: center;
+        height: unset !important;
+        overflow: unset !important;
+    }
 `;
 
 export const StyledMovieListItems = styled.div`

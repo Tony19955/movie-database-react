@@ -10,6 +10,7 @@ interface MoviesResponse {
 
 interface GetMoviesParams {
     s: string;
+    page: number;
 }
 
 interface GetMovieParams {
@@ -21,16 +22,13 @@ export const omdbAPI = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: 'http://www.omdbapi.com' }),
     refetchOnReconnect: true,
     endpoints: (builder) => ({
-        getMovies: builder.query<Movie[], GetMoviesParams>({
-            query: ({ s }) => {
+        getMovies: builder.query<MoviesResponse, GetMoviesParams>({
+            query: ({ s, page }) => {
                 return {
                     url: `/?apikey=${import.meta.env.VITE_OMDB_API_KEY}`,
                     method: GET,
-                    params: { s }
+                    params: { s, page }
                 };
-            },
-            transformResponse: (moviesResponseData: MoviesResponse) => {
-                return moviesResponseData.Search;
             },
             keepUnusedDataFor: 180
         }),

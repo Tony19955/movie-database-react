@@ -19,7 +19,7 @@ interface GetMovieParams {
 
 export const omdbAPI = createApi({
     reducerPath: 'omdbApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://www.omdbapi.com' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://www.omdbapi.com' }),
     refetchOnReconnect: true,
     endpoints: (builder) => ({
         getMovies: builder.query<MoviesResponse, GetMoviesParams>({

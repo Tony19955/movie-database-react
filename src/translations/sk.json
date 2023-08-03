@@ -11,9 +11,25 @@
         "label-director": "Režisér:",
         "label-writer": "Scenárista:",
         "label-actors": "Obsadenie:",
+        "label-awards": "Ocenenia:",
+        "label-country": "Krajina:",
+        "label-language": "Jazyk:",
+        "label-metascore": "Metaskóre:",
+        "label-runtime": "Dĺžka:",
+        "label-type": "Typ:",
+        "label-total-seasons": "Počet sérií:",
+        "label-view-imdb": "Pozrieť na IMDB",
+        "label-back-to-search": "Späť na vyhľadávanie",
+        "label-add-to-favourites": "Pridať do obľúbených",
+        "label-remove-from-favourites": "Odobrať z obľúbených",
+        "label-movie-detail": "Detail filmu",
+        "label-try-again": "Skúsiť znova",
 
         "heading-about": "Obsah",
+        "heading-no-favourites-added": "Zatiaľ ste nepridali žiadne filmy do obľúbených",
 
-        "error-could-not-fetch": "Vypadá to, že niekde nastala chyba, prosím zopakujte akciu neskôr."
+        "error-could-not-fetch": "Vypadá to, že niekde nastala chyba, prosím zopakujte akciu neskôr",
+        "error-no-available": "Vypadá to, že film už nie je viac dostupný",
+        "error-not-found": "Niečo sa pokazilo..."
     }
 }

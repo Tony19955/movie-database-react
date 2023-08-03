@@ -10,6 +10,7 @@ export const StyledButton = styled.button<{ rounded?: boolean; secondary?: boole
     font-size: 1.4rem;
     padding: 0 1.5rem;
     width: fit-content;
+    white-space: nowrap;
     align-items: center;
     transition: 200ms all;
     letter-spacing: 0.1rem;

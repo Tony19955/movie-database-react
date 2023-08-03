@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { WHITE } from '../styles/colors';
 
 export const StyledMovieListWrapper = styled.div`
     gap: 4rem;
@@ -27,11 +26,4 @@ export const StyledMovieListItems = styled.div`
     @media only screen and (min-width: 128rem) {
         grid-template-columns: repeat(6, calc((100% / 6) - 1.5rem));
     }
-`;
-
-export const StyledInfoLabel = styled.p`
-    color: ${WHITE};
-    font-size: 2rem;
-    font-weight: 900;
-    letter-spacing: 0.1rem;
 `;

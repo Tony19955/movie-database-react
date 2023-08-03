@@ -1,15 +1,11 @@
-import { useTranslation } from 'react-i18next';
-import {
-    StyledImageSuspense,
-    StyledMovieCardWrapper,
-    StyledMovieImage,
-    StyledMovieInfo,
-    StyledMovieTitle,
-    StyledMovieYear
-} from './MovieCard.styles';
-import Button from './reusable/Button';
+import { StyledMovieCardWrapper, StyledMovieImage, StyledMovieInfo, StyledMovieTitle, StyledMovieYear } from './MovieCard.styles';
+
 import { Link } from 'react-router-dom';
-import Icon from './reusable/Icon';
+import { useTranslation } from 'react-i18next';
+
+import Button from './reusable/Button';
+
+import { NOT_AVAILABLE } from '../constants';
 
 interface MovieCardProps {
     poster: string;
@@ -23,13 +19,7 @@ const MovieCard = ({ imdbId, poster, title, year }: MovieCardProps): JSX.Element
 
     return (
         <StyledMovieCardWrapper>
-            {poster === 'N/A' ? (
-                <StyledImageSuspense>
-                    <Icon id="movie-icon" className="movie-icon" />
-                </StyledImageSuspense>
-            ) : (
-                <StyledMovieImage src={`${poster}`} alt={title} />
-            )}
+            <StyledMovieImage src={poster === NOT_AVAILABLE ? '/image-suspense.jpg' : `${poster}`} alt={title} />
             <StyledMovieInfo>
                 <StyledMovieTitle>{title}</StyledMovieTitle>
                 <StyledMovieYear>{year}</StyledMovieYear>

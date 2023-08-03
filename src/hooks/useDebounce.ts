@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
+import { RootState } from '../types/types';
 
-export const useDebounce = (value: string | number, delay = 500): string | number => {
-    const [debouncedValue, setDebouncedValue] = useState<string | number>('');
+export const useDebounce = (value: string | number | RootState, delay = 500): string | number | RootState => {
+    const [debouncedValue, setDebouncedValue] = useState<string | number | RootState>('');
     const timerRef = useRef<number>(0);
 
     useEffect(() => {

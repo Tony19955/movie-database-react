@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Icon from './reusable/Icon';
 import Button from './reusable/Button';
 import { useTranslation } from 'react-i18next';
+import LanguageSelector from './reusable/LanguageSelector';
 
 const Header = (): JSX.Element => {
     const { t } = useTranslation();
@@ -14,7 +15,7 @@ const Header = (): JSX.Element => {
             <Link to="/">
                 <StyledButton>
                     <Icon id="popcorn-icon" className="popcorn-icon" />
-                    MOVIE
+                    <p>Movie</p>
                 </StyledButton>
             </Link>
             <Link to="/favourite-movies">
@@ -23,6 +24,7 @@ const Header = (): JSX.Element => {
                     <Icon id="star-icon" className="star-icon" />
                 </Button>
             </Link>
+            <LanguageSelector />
         </StyledHeaderWrapper>
     );
 };

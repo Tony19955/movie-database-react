@@ -11,9 +11,23 @@
         "label-director": "Director:",
         "label-writer": "Writer:",
         "label-actors": "Actors:",
+        "label-awards": "Awards:",
+        "label-country": "Country:",
+        "label-language": "Language:",
+        "label-metascore": "Metascore:",
+        "label-runtime": "Runtime:",
+        "label-type": "Type:",
+        "label-total-seasons": "Total seasons:",
+        "label-view-imdb": "View on IMDB",
+        "label-back-to-search": "Back to search",
+        "label-movie-detail": "Movie detail",
+        "label-try-again": "Try again",
 
         "heading-about": "About",
+        "heading-no-favourites-added": "You have not added any movies to favourites, yet",
 
-        "error-could-not-fetch": "It seems like there occured an error, please try again later"
+        "error-could-not-fetch": "It seems like there occured an error, please try again later",
+        "error-no-available": "It seems like movie is not available anymore",
+        "error-not-found": "Something went wrong..."
     }
 }

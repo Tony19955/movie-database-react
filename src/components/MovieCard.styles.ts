@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BLACK, GREY, WHITE } from '../styles/colors';
+import { NERO, WHITE } from '../styles/colors';
 
 export const StyledMovieCardWrapper = styled.div`
     width: 100%;
@@ -16,20 +16,6 @@ export const StyledMovieCardWrapper = styled.div`
     }
 `;
 
-export const StyledImageSuspense = styled.div`
-    height: 100%;
-    display: flex;
-    min-height: 45rem;
-    background: ${GREY};
-    align-items: center;
-    justify-content: center;
-
-    .movie-icon {
-        width: auto;
-        height: 10rem;
-    }
-`;
-
 export const StyledMovieImage = styled.img`
     width: 100%;
     height: 100%;
@@ -42,7 +28,7 @@ export const StyledMovieInfo = styled.div`
     gap: 0.5rem;
     display: flex;
     padding: 1.5rem;
-    background: ${BLACK};
+    background: ${NERO};
     flex-direction: column;
     border-top: 0.2rem solid ${WHITE};
 `;

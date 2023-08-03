@@ -13,8 +13,8 @@ const favouritesSlice = createSlice({
     name: 'favourites',
     initialState,
     reducers: {
-        saveFavouriteMovie: (state, action: PayloadAction<string[]>) => {
-            state.favouriteMovies = action.payload;
+        saveFavouriteMovie: (state, action: PayloadAction<string>) => {
+            state.favouriteMovies = [...state.favouriteMovies, action.payload];
         },
         removeFavouriteMovie: (state, action: PayloadAction<string>) => {
             state.favouriteMovies = state.favouriteMovies.filter((movie) => movie !== action.payload);

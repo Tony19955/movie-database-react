@@ -8,3 +8,4 @@ export const ROYAL_BLUE = '#5D72EB';
 export const RESOLUTION_BLUE = '#2C387E';
 export const FREE_SPEECH_BLUE_04 = '#3F51B5C4';
 export const GREY = '#808080';
+export const SAFFRON = '#F1C232';

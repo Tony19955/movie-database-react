@@ -1,10 +1,12 @@
-import { StyledInfoLabel, StyledMovieListItems, StyledMovieListWrapper } from './MovieList.styles';
+import { StyledMovieListItems, StyledMovieListWrapper } from './MovieList.styles';
 
-import { SyntheticEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { SyntheticEvent, useState } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import MovieCard from '../components/MovieCard';
 import Search from '../components/reusable/Search';
+import InfoLabel from '../components/reusable/InfoLabel';
 import LoaderSpinner from '../components/reusable/LoaderSpinner';
 
 import { useDebounce } from '../hooks/useDebounce';
@@ -32,16 +34,24 @@ const MovieList = (): JSX.Element => {
     return (
         <StyledMovieListWrapper>
             <Search onChange={handleSearchValueChange} placeholder={t('label-search-movie')} value={searchValue} />
-            {error ? <StyledInfoLabel>{t('error-could-not-fetch')}</StyledInfoLabel> : null}
+            {error ? <InfoLabel>{t('error-could-not-fetch')}</InfoLabel> : null}
             {isLoading ? <LoaderSpinner /> : null}
             {movies && movies.length > 0 ? (
-                <StyledMovieListItems>
-                    {movies?.map(({ imdbID, Poster, Title, Year }) => (
-                        <MovieCard key={imdbID} imdbId={imdbID} poster={Poster} title={Title} year={Year} />
-                    ))}
-                </StyledMovieListItems>
+                <InfiniteScroll
+                    dataLength={movies.length}
+                    next={() => console.log('there is more')}
+                    hasMore={true} // Replace with a condition based on your data source
+                    loader={<p>Loading...</p>}
+                    endMessage={<p>No more data to load.</p>}
+                >
+                    <StyledMovieListItems>
+                        {movies?.map(({ imdbID, Poster, Title, Year }) => (
+                            <MovieCard key={imdbID} imdbId={imdbID} poster={Poster} title={Title} year={Year} />
+                        ))}
+                    </StyledMovieListItems>
+                </InfiniteScroll>
             ) : (
-                !error && !isLoading && <StyledInfoLabel>{t('label-no-movies-found')}</StyledInfoLabel>
+                searchValue && !error && !isLoading && <InfoLabel>{t('label-no-movies-found')}</InfoLabel>
             )}
         </StyledMovieListWrapper>
     );

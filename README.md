@@ -20,7 +20,7 @@ src - all app source code
 
    /pages - folder with all app pages
 
-      /layouts - folder with app layouts (for possible difference in layouts if app scales)
+   /layouts - folder with app layouts (for possible difference in layouts if app scales)
 
    /redux - folder with services (RTK query) and slices (Redux Toolkit) folders
 
